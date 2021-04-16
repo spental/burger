@@ -1,26 +1,26 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "Homework #14 for UCLA coding bootcamp",
+  "description": "App to create a burger logger with Mysql, Node, Express, Handlebars and ORM",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HaydenEStern/burger.git"
+    "url": "git+https://github.com/leskbook/burger.git"
   },
-  "author": "Hayden Stern",
+  "author": "Leslie Book",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HaydenEStern/burger/issues"
+    "url": "https://github.com/leskbook/burger/issues"
   },
-  "homepage": "https://github.com/HaydenEStern/burger#readme",
+  "homepage": "https://github.com/leskbook/burger#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.10",
-    "mysql": "^2.15.0"
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "mysql": "^2.18.1",
+    "node.js": "0.0.1-security"
   }
 }

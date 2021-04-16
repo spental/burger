@@ -1,40 +1,49 @@
-
+<!--div to hold the images for the burger-->
 <div class="container">
-<div class="card mx-auto" style="width: 40rem;">
-<div class="card-header">
-<h1 class="text-center">Eat A Burger!</h1>
+   <img src="/assets/images/burger5.png" class="burgerpix">
+    <h1 id="title">EAT-DA-BURGER!</h1>
 </div>
-<div class="card-body mx-auto">
-
-<h2 class="card-title">Available Burgers</h2>
-
-<ul class="justify-content-center">
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=0}}
-    {{/unless}}
-  {{/each}}
-</ul>
-<br>
-<h2 class="card-title">Devoured Burgers</h2>
-
-<ul class="justify-content-center">
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=1}}
-    {{/if}}
-  {{/each}}
-</ul>
-<br>
-<h2 class="card-title">Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label><br>
-    <input type="text" id="burger" name="name">
-  </div>
-
-  <button class="btn btn-secondary" type="submit">Add Burger</button>
+<div class="container">
+    <div class="row">        
+        <div class="col-lg-4"><ol>
+            {{#each burger}}
+            {{#if devoured}}
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <li class='list'>
+                        <p class='wait'>{{this.id}}. {{this.burger_name}}</p>
+                        <button class='check' data-id="{{this.id}}">Devour it!</button>
+                        </li>
+                        </div>
+                        </div>
+            {{/if}}
+            {{/each}}
+        </ol>
+        </div>
+        <div class="col-lg-4">                    
+<form id="burger" style="text-align: center;">
+    <textarea id="burgername" name="burgername">
+    </textarea><br>
+    <button type="submit"class="btn btn-primary" id="getData">submit</button>
 </form>
+<div class="row">
+<div class="col-lg-12">
+    <h6  style="text-align: center;font-weight: bold;">What's da burger you want to eat? Click the "Submit" button</h6>
+</div>
+</div>
+    </div>    
+<div class="col-lg-4"><ol>
+     {{#each burger}}
+            {{#unless devoured}}
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <li class='list'>
+                        <p class='nowait'>{{this.id}}. {{this.burger_name}}</p>
+                        </li>
+                        </div>
+                        </div>
+            {{/unless}}
+            {{/each}}
+</ol></div>
 </div>
 </div>

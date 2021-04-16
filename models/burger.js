@@ -1,24 +1,41 @@
-// Import the ORM to create functions that will interact with the database.
-var orm = require("../config/orm.js");
+const orm = require('../config/orm');
+const chalk = require('chalk');
+const burger = {
+        //Select all the records from burger table
+        selectAll: async function (table) {
+                try {
+                        const result = await orm.selectAll(table);
+                        return (result);
+                }
+                catch
+                {
+                        console.log(chalk.yellowBright.black("error"));
+                }
+        },
 
-var burger = {
-  selectAll: function(cb) {
-    orm.selectAll("burgers", function(res) {
-      cb(res);
-    });
-  },
-  // The variables cols and vals are arrays.
-  insertOne: function(cols, vals, cb) {
-    orm.insertOne("burgers", cols, vals, function(res) {
-      cb(res);
-    });
-  },
-  updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("burgers", objColVals, condition, function(res) {
-      cb(res);
-    });
-  }
+        //Insert records into burger table
+        insertOne: async function (table, oneValue, twoValue) {
+                try {
+
+                        const result = await orm.insertOne(table, oneValue, twoValue);
+                        return (result);
+                }
+                catch
+                {
+                        console.log(chalk.yellowBright.black("error"));
+                }
+        },
+        //Update the records in the burger table
+        updateOne: async function (table, whereValue, idValue) {
+                try {
+
+                        const result = await orm.updateOne(table, whereValue, idValue);
+                        return (result);
+                }
+                catch
+                {
+                        console.log(chalk.yellowBright.black("error"));
+                }
+        }
 };
-
-// Export the database functions for the controller (burgers_controller.js).
 module.exports = burger;

@@ -1,49 +1,45 @@
-var express = require("express");
+const express = require('express');
+const burger = require('../models/burger');
+const router = express.Router();
+const chalk = require('chalk');
 
-var router = express.Router();
-
-// Import the model (burger.js) to use its database functions.
-var burger = require("../models/burger.js");
-
-// Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-    burger.selectAll(function(data) {
-        var hbsObject = {
-            burgers: data
-        };
-        console.log(hbsObject);
-        res.render("index", hbsObject);
-    });
+//Select all the values from the burger table
+router.get("/", function (req, res) {
+    try {
+        return burger.selectAll("burger").then(function (data) {
+            var hbsObject = {
+                burger: data
+            };
+            res.render("index", hbsObject);
+        });
+    }
+    catch
+    {
+        console.log(chalk.yellowBright.black("error"));
+    }
 });
-
-router.post("/api/burgers", function(req, res) {
-    burger.insertOne([
-        "burger_name", "devoured"
-    ], [
-        req.body.name, req.body.devoured
-    ], function(result) {
-        // Send back the ID of the new quote
-        res.json({ id: result.insertId });
-    });
+//Insert a new burger
+router.post("/api/burger", function (req, res) {
+    try {
+        return burger.insertOne("burger", req.body.burgername, true).then(function (data) {
+            res.json({ id: data.insertId });
+        });
+    }
+    catch
+    {
+        console.log(chalk.yellowBright.black("error"));
+    }
 });
-
-router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-
-    console.log("condition", condition);
-
-    burger.updateOne({
-        devoured: req.body.devoured
-    }, condition, function(result) {
-        if (result.changedRows == 0) {
-            // If no rows were changed, then the ID must not exist, so 404
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    });
+//Update the burger devour value
+router.put("/api/burger/:id", function (req, res) {
+    try {
+        return burger.updateOne("burger", false, req.params.id).then(function (data) {
+            res.json({ id: data.insertId });
+        });
+    }
+    catch
+    {
+        console.log(chalk.yellowBright.black("error"));
+    }
 });
-
-
-// Export routes for server.js to use.
 module.exports = router;
