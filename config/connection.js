@@ -1,33 +1,64 @@
-var mysql = require("mysql");
-var connection;
+/**const mysql = require('mysql');
 
-//creating connection
-// var connection = mysql.createConnection({ // Set connection parameters
-//   host: "localhost",
-//   user: "root",
-//   password: "0118488320613",
-//   database: "burgers_db"
-// });
-
-if (process.env.JAWSDB_URL) {
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-    connection = mysql.createConnection({ // Set local connection parameters
-        host: "localhost",
-        user: "root",
-        password: "password",
-        database: "burgers_db"
-    });
+var config = {
+  port: 3306
+  host:'us-cdbr-iron-east-05.cleardb.net' || 'localhost',
+  user: 'bb6450110835d3' || 'root',
+  password: '8c513618' || '',
+  database: 'b8fd4a5101137fa' || 'burgers_db'
 };
 
-//creating connection
-connection.connect(function(err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-    console.log("connected as id " + connection.threadId);
+var pool = mysql.createPool(config);
+
+pool.getConnection(function(err, connection) {
+  // Use the connection
+  connection.query('SELECT * FROM burgers', function (error, results, fields) {
+    // And done with the connection.
+    connection.release();
+
+    // Handle error after the release.
+    if (error) throw error;
+
+    // Don't use the connection here, it has been returned to the pool.
+  });
 });
 
-//exporting for ORM
+
+module.exports = pool;
+**/
+
+var mysql = require("mysql");
+/**
+// we placed the connections in this source object
+var source = {
+  // localhost
+  localhost: {
+    port: 3306,
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "todolist"
+  },
+
+  // clearDB
+  jawsDB: {
+    port: 3306,
+    host: "us-cdbr-east.cleardb.com",
+    user: "adffdadf2341",
+    password: "adf4234",
+    database: "heroku_db"
+  }
+}; **/
+
+// we use source.[name of connection] to hook into mysql
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
+
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
 module.exports = connection;

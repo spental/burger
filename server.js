@@ -1,32 +1,25 @@
-//require express
 var express = require("express");
-//require express-handlebars
-var exphbs = require("express-handlebars");
-//require body-parser                                
-//require burgers_controllers
-var routes = require("./controllers/burgers_controller.js");
-//express call using app
-var app = express();
-//local host port                         
-var PORT = process.env.PORT || 8080;
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 
-//public folder
+var port = process.env.PORT || 3000;
+
+var app = express();
+
+// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
-//parses JSON
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-//handlebars run using main for content
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//calls api routes
-app.use(routes);
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
 
-app.listen(PORT, function() {
-    console.log("Listening on Port: " + PORT);
-});
+app.use("/", routes);
+
+app.listen(port);

@@ -1,27 +1,26 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "Week 14- Homework (Node Express Handlebars)",
-  "main": "index.js",
+  "description": "Homework #14 for UCLA coding bootcamp",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alinavo/burger.git"
+    "url": "git+https://github.com/HaydenEStern/burger.git"
   },
-  "author": "",
+  "author": "Hayden Stern",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alinavo/burger/issues"
+    "url": "https://github.com/HaydenEStern/burger/issues"
   },
-  "homepage": "https://github.com/alinavo/burger#readme",
+  "homepage": "https://github.com/HaydenEStern/burger#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.2",
-    "mysql": "^2.16.0"
-  },
-  "devDependencies": {}
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
+    "mysql": "^2.15.0"
+  }
 }
