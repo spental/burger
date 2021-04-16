@@ -20,6 +20,7 @@
     "chalk": "^4.1.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
+    "favicon": "0.0.2",
     "mysql": "^2.18.1",
     "node.js": "0.0.1-security"
   }
