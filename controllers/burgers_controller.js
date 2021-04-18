@@ -15,31 +15,31 @@ router.get("/", function (req, res) {
     }
     catch
     {
-        console.log((error));
+        console.log(chalk.yellowBright.black("error"));
     }
 });
 //Insert a new burger
 router.post("/api/burger", function (req, res) {
     try {
         return burger.insertOne("burger", req.body.burgername, true).then(function (data) {
-            res.json({ id: data?.insertId });
+            res.json({ id: data.insertId });
         });
     }
     catch
     {
-        console.log((error));
+        console.log(chalk.yellowBright.black("error"));
     }
 });
 //Update the burger devour value
 router.put("/api/burger/:id", function (req, res) {
     try {
         return burger.updateOne("burger", false, req.params.id).then(function (data) {
-            res.json({ id: data?.insertId });
+            res.json({ id: data.insertId });
         });
     }
     catch
     {
-        console.log((error));
+        console.log(chalk.yellowBright.black("error"));
     }
 });
 module.exports = router;
