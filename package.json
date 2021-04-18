@@ -1,7 +1,10 @@
 {
-  "name": "burger",
+  "name": "Burger",
   "version": "1.0.0",
-  "description": "App to create a burger logger with Mysql, Node, Express, Handlebars and ORM",
+  "engines": {
+    "node": "14.15.4"
+  },
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,19 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spental/burger"
+    "url": "git+https://github.com/panwaramita/Burger.git"
   },
-  "author": "Spen",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/spental/burger/issues"
+    "url": "https://github.com/panwaramita/Burger/issues"
   },
-  "homepage": "https://github.com/spnetal/burger#readme",
+  "homepage": "https://github.com/panwaramita/Burger#readme",
   "dependencies": {
-    "chalk": "^4.1.0",
-    "dotenv": "^8.2.0",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
   }
 }

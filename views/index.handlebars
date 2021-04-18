@@ -1,10 +1,11 @@
 <!--div to hold the images for the burger-->
 <div class="container">
-   <img src="https://github.com/spental/burger/blob/main/public/assets/images/patty.png?raw=true" class="burgerpix">
-    <h1 id="title">EAT-DA-BURGER!</h1>
+   <marquee><img src="/assets/img/burger1.jpg" class="burgerPic"><img src="/assets/img/burger3.jpg" class="burgerPic"><img src="/assets/img/burger4.png" class="burgerPic"></marquee> 
+    <h1 id="title">EAT-DA-Burger!</h1>
 </div>
 <div class="container">
-    <div class="row">        
+    <div class="row">
+        <!--div to hold the burger need to devour-->
         <div class="col-lg-4"><ol>
             {{#each burger}}
             {{#if devoured}}
@@ -20,7 +21,8 @@
             {{/each}}
         </ol>
         </div>
-        <div class="col-lg-4">                    
+        <div class="col-lg-4"> 
+       <!--create the form that accept the new burger and on submit make an entry in the database-->            
 <form id="burger" style="text-align: center;">
     <textarea id="burgername" name="burgername">
     </textarea><br>
@@ -28,10 +30,11 @@
 </form>
 <div class="row">
 <div class="col-lg-12">
-    <h6  style="text-align: center;font-weight: bold;">What's da burger you want to eat? Click the "Submit" button</h6>
+    <h6  style="text-align: center;font-weight: bold;">Enter a burger you want to eat Click the "Submit" button</h6>
 </div>
 </div>
-    </div>    
+    </div>
+    <!--div for the burger that are devoured-->
 <div class="col-lg-4"><ol>
      {{#each burger}}
             {{#unless devoured}}

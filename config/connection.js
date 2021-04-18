@@ -1,19 +1,18 @@
+//import mysql pacakge
 const mysql = require('mysql');
-const chalk = require('chalk');
-require ('dotenv').config();
 let connection;
-//Heroku connection
+//create the connection needs for the heroku app
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 else {
-  //localhost connection
+  //create the connection needs for the localhost
   connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    port: process.env.PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB
+    host: "localhost",
+    port: "3306",
+    user: "root",
+    password: "090981",
+    database: "burgers_db"
   });
 }
 connection.connect(function (err) {
@@ -21,8 +20,7 @@ connection.connect(function (err) {
     console.error("error connecting: " + err.stack);
     return;
   }
-  console.log(chalk.bgGreenBright.black("connected as id " + connection.threadId));
+  console.log("connected as id " + connection.threadId);
 });
-
+//export the connection
 module.exports = connection;
-
