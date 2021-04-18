@@ -1,17 +1,17 @@
-//import mysql pacakge
 const mysql = require('mysql');
+const chalk = require('chalk');
 let connection;
-//create the connection needs for the heroku app
+//Heroku connection
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 else {
-  //create the connection needs for the localhost
+  //localhost connection
   connection = mysql.createConnection({
     host: "localhost",
     port: "3306",
     user: "root",
-    password: "password",
+    password: "myP@ssword",
     database: "burgers_db"
   });
 }
@@ -20,7 +20,7 @@ connection.connect(function (err) {
     console.error("error connecting: " + err.stack);
     return;
   }
-  console.log("connected as id " + connection.threadId);
+  console.log(chalk.bgGreenBright.black("connected as id " + connection.threadId));
 });
-//export the connection
+
 module.exports = connection;

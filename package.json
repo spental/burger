@@ -1,33 +1,25 @@
 {
-  "name": "Burger",
+  "name": "burger",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.15.4"
-  },
-  "description": "",
+  "description": "App to create a burger logger with Mysql, Node, Express, Handlebars and ORM",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/panwaramita/Burger.git"
+    "url": "git+https://github.com/leskbook/burger.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Leslie Book",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/panwaramita/Burger/issues"
+    "url": "https://github.com/leskbook/burger/issues"
   },
-  "homepage": "https://github.com/panwaramita/Burger#readme",
+  "homepage": "https://github.com/leskbook/burger#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "ws": "3.3.2"
   }
 }

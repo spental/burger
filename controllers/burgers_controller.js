@@ -1,7 +1,9 @@
 const express = require('express');
 const burger = require('../models/burger');
 const router = express.Router();
-//select all the values from the burger table
+const chalk = require('chalk');
+
+//Select all the values from the burger table
 router.get("/", function (req, res) {
     try {
         return burger.selectAll("burger").then(function (data) {
@@ -13,10 +15,10 @@ router.get("/", function (req, res) {
     }
     catch
     {
-        console.log("error");
+        console.log(chalk.yellowBright.black("error"));
     }
 });
-//insert a new burger in to the burger table
+//Insert a new burger
 router.post("/api/burger", function (req, res) {
     try {
         return burger.insertOne("burger", req.body.burgername, true).then(function (data) {
@@ -25,10 +27,10 @@ router.post("/api/burger", function (req, res) {
     }
     catch
     {
-        console.log("error");
+        console.log(chalk.yellowBright.black("error"));
     }
 });
-//update the burger Devour value to false
+//Update the burger devour value
 router.put("/api/burger/:id", function (req, res) {
     try {
         return burger.updateOne("burger", false, req.params.id).then(function (data) {
@@ -37,7 +39,7 @@ router.put("/api/burger/:id", function (req, res) {
     }
     catch
     {
-        console.log("error");
+        console.log(chalk.yellowBright.black("error"));
     }
 });
 module.exports = router;

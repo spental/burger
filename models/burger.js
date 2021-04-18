@@ -1,7 +1,7 @@
-//import the orm file
 const orm = require('../config/orm');
+const chalk = require('chalk');
 const burger = {
-        //create the function to select all the records from burger table
+        //Select all the records from burger table
         selectAll: async function (table) {
                 try {
                         const result = await orm.selectAll(table);
@@ -9,11 +9,11 @@ const burger = {
                 }
                 catch
                 {
-                        console.log("error");
+                        console.log(chalk.yellowBright.black("error"));
                 }
         },
 
-        //create the function to insert the records into burger table
+        //Insert records into burger table
         insertOne: async function (table, oneValue, twoValue) {
                 try {
 
@@ -22,10 +22,10 @@ const burger = {
                 }
                 catch
                 {
-                        console.log("error");
+                        console.log(chalk.yellowBright.black("error"));
                 }
         },
-        //create the function to update the records into burger table
+        //Update the records in the burger table
         updateOne: async function (table, whereValue, idValue) {
                 try {
 
@@ -34,7 +34,7 @@ const burger = {
                 }
                 catch
                 {
-                        console.log("error");
+                        console.log(chalk.yellowBright.black("error"));
                 }
         }
 };
