@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const chalk = require('chalk');
+require ('dotenv').config();
 let connection;
 //Heroku connection
 if (process.env.JAWSDB_URL) {
@@ -8,11 +9,11 @@ if (process.env.JAWSDB_URL) {
 else {
   //localhost connection
   connection = mysql.createConnection({
-    host: "localhost",
-    port: "3306",
-    user: "root",
-    password: "password",
-    database: "burgers_db"
+    host: process.env.DB_HOST,
+    port: process.env.PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB
   });
 }
 connection.connect(function (err) {
@@ -24,3 +25,4 @@ connection.connect(function (err) {
 });
 
 module.exports = connection;
+
