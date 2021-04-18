@@ -15,7 +15,7 @@ router.get("/", function (req, res) {
     }
     catch
     {
-        console.log(chalk.yellowBright.black("error"));
+        console.log(chalk.yellowBright.black(error));
     }
 });
 //Insert a new burger
@@ -27,7 +27,7 @@ router.post("/api/burger", function (req, res) {
     }
     catch
     {
-        console.log(chalk.yellowBright.black("error"));
+        console.log(chalk.yellowBright.black(error));
     }
 });
 //Update the burger devour value
@@ -39,7 +39,7 @@ router.put("/api/burger/:id", function (req, res) {
     }
     catch
     {
-        console.log(chalk.yellowBright.black("error"));
+        console.log(chalk.yellowBright.black(error));
     }
 });
 module.exports = router;
