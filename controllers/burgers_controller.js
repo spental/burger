@@ -22,7 +22,7 @@ router.get("/", function (req, res) {
 router.post("/api/burger", function (req, res) {
     try {
         return burger.insertOne("burger", req.body.burgername, true).then(function (data) {
-            res.json({ id: data.insertId });
+            res.json({ id: data?.insertId });
         });
     }
     catch
@@ -34,7 +34,7 @@ router.post("/api/burger", function (req, res) {
 router.put("/api/burger/:id", function (req, res) {
     try {
         return burger.updateOne("burger", false, req.params.id).then(function (data) {
-            res.json({ id: data.insertId });
+            res.json({ id: data?.insertId });
         });
     }
     catch
