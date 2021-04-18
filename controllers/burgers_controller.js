@@ -1,50 +1,45 @@
 const express = require('express');
-
-const router = express.Router();
-
 const burger = require('../models/burger');
+const router = express.Router();
+const chalk = require('chalk');
 
-router.get('/', (req, res) => {
-  burger.selectAll((data) => {
-    let handleBarsObject = { burgers: data };
-    console.log(handleBarsObject);
-    res.render("index", handleBarsObject);
-  });
-});
-
-router.post('/api/new-burger', (req, res) => {
-  burger.insertOne([
-    'burger_name', 'devoured'
-  ], [
-    req.body.burger_name, req.body.devoured
-  ], (result) => {
-    res.json({ id: result.insertId });
-  });
-});
-
-router.put('/api/update-burger/:id', (req, res) => {
-  let condition = `id = ${req.params.id}`;
-  console.log('condition', condition);
-  burger.updateOne({
-    devoured: req.body.devoured
-  }, condition, (result) => {
-    if (result.changedRows === 0) {
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
+//Select all the values from the burger table
+router.get("/", function (req, res) {
+    try {
+        return burger.selectAll("burger").then(function (data) {
+            var hbsObject = {
+                burger: data
+            };
+            res.render("index", hbsObject);
+        });
     }
-  });
-});
-
-router.delete("/api/delete-burger/:id", (req, res) => {
-  let condition = `id = ${req.params.id}`;
-  burger.delete(condition, (result) => {
-    if (result.affectedRows === 0) {
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
+    catch
+    {
+        console.log(chalk.yellowBright.black("error"));
     }
-  });
 });
-
+//Insert a new burger
+router.post("/api/burger", function (req, res) {
+    try {
+        return burger.insertOne("burger", req.body.burgername, true).then(function (data) {
+            res.json({ id: data.insertId });
+        });
+    }
+    catch
+    {
+        console.log(chalk.yellowBright.black("error"));
+    }
+});
+//Update the burger devour value
+router.put("/api/burger/:id", function (req, res) {
+    try {
+        return burger.updateOne("burger", false, req.params.id).then(function (data) {
+            res.json({ id: data.insertId });
+        });
+    }
+    catch
+    {
+        console.log(chalk.yellowBright.black("error"));
+    }
+});
 module.exports = router;
