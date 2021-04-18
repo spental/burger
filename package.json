@@ -4,18 +4,20 @@
   "description": "App to create a burger logger with Mysql, Node, Express, Handlebars and ORM",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leskbook/burger.git"
+    "url": "https://github.com/spental/burger"
   },
-  "author": "Leslie Book",
+  "author": "Spen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/leskbook/burger/issues"
+    "url": "https://github.com/spental/burger/issues"
   },
-  "homepage": "https://github.com/leskbook/burger#readme",
+  "homepage": "https://github.com/spnetal/burger#readme",
   "dependencies": {
     "chalk": "^4.1.0",
     "express": "^4.17.1",
