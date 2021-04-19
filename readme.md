@@ -43,7 +43,7 @@ For any questions regarding anything related to this application you may reach m
 Deployed live to Heroku [click me](https://immense-headland-26619.herokuapp.com/)
 
 ## Github Link
-![Heroku Link](blooming-scrubland-22942.herokuapp.com/)
+![Heroku Link](https://blooming-scrubland-22942.herokuapp.com/)
 ## Screen shot
 
 
