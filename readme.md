@@ -46,4 +46,4 @@ Deployed live to Heroku [click me](https://immense-headland-26619.herokuapp.com/
 Deployed live to Heroku [click me](https://github.com/spental/burger)
 ## Screen shot
 
-![image](https://user-images.githubusercontent.com/73912705/112013990-e13c0500-8b00-11eb-9c4b-717fc70fb583.png)
+
